@@ -24,10 +24,17 @@ class ReviewFactory extends Factory
             'updated_at'=>fake()->dateTimeBetween('created_at','now')
         ];
     }
-    public function good(){
+    public function good(){   //x reviws number of stars
         return $this->state(function (array $attributes){
             return [
                 'rating'=>fake()->numberBetween(4,5)
+            ];
+        });
+    }
+    public function average(){
+        return $this->state(function (array $attributes){
+            return [
+                'rating'=>fake()->numberBetween(2,5)
             ];
         });
     }

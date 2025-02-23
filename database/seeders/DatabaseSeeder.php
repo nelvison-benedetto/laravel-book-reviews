@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         Book::factory(count: 33)->create()->each(function($book){
             $numReviews = random_int(5,30);
             Review::factory()->count($numReviews)
-                ->good()
+                ->good()   //if you add below another funct as average() or bad() it will override good()
                 ->for($book)
                 ->create();
         });
