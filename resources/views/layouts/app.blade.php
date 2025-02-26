@@ -64,7 +64,7 @@
 </head>
 
 <body class="container mx-auto mt-10 mb-10 max-w-3xl">
-  @yield('content')
+   @yield('content')  {{-- viene sostituito con il contenuto di 'content' di chi estende questo file --}}
 </body>
 
 </html>

@@ -10,25 +10,22 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         // User::factory(10)->create();
 
-        Book::factory(count: 33)->create()->each(function($book){
+        Book::factory(count: 33)->create()->each(function($book){  //x ciascuno dei 33books creare reviews...
             $numReviews = random_int(5,30);
             Review::factory()->count($numReviews)
-                ->good()   //if you add below another funct as average() or bad() it will override good()
-                ->for($book)
-                ->create();
+                ->good()   //use funct good() of ReviewFactory.php
+                ->for($book)  //equivalente a dire 'book_id' => $book->id, link review-book with book_id field
+                ->create();  //lrv creates the reviews and adds them to the db
         });
         Book::factory(23)->create()->each(function($book){
             $numReviews = random_int(5,30);
             Review::factory()->count($numReviews)
-                ->bad()
-                ->for($book)
+                ->bad()  //use funct bad() of ReviewFactory.php
+                ->for($book)  //equivalente a dire 'book_id' => $book->id, link review-book with book_id field
                 ->create();
         });
     }

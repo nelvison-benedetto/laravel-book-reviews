@@ -17,10 +17,10 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'title'=>fake()->sentence(3),
-            'author'=>fake()->name,
-            'created_at'=>fake()->dateTimeBetween('-2 years'),
-            'updated_at'=>fake()->dateTimeBetween('created_at','now')
+            'title'=>fake()->sentence(3), //3 parole random
+            'author'=>fake()->name,   //nome random i.e. Neil Boinberon
+            'created_at'=>fake()->dateTimeBetween('-2 years'),  //date random in last 2 years
+            'updated_at'=>fake()->dateTimeBetween('created_at','now')  //date random between created_at-now
         ];
     }
 }

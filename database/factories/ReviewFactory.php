@@ -17,8 +17,8 @@ class ReviewFactory extends Factory
     public function definition(): array
     {
         return [
-            'book_id'=>null,
-            'review'=>fake()->paragraph,
+            'book_id'=>null,  //questo viene assegnato manulmente dopo
+            'review'=>fake()->paragraph,  //random paragraph
             'rating'=>fake()->numberBetween(1,5),
             'created_at'=>fake()->dateTimeBetween('-2 years'),
             'updated_at'=>fake()->dateTimeBetween('created_at','now')
@@ -27,21 +27,23 @@ class ReviewFactory extends Factory
     public function good(){   //x reviws number of stars
         return $this->state(function (array $attributes){
             return [
-                'rating'=>fake()->numberBetween(4,5)
+                'rating'=>fake()->numberBetween(4,5)  //il rating viene sovrscitto
             ];
         });
-    }
+    }  //continue on DatabaseSeeder.php
+
     public function average(){
         return $this->state(function (array $attributes){
             return [
-                'rating'=>fake()->numberBetween(2,5)
+                'rating'=>fake()->numberBetween(2,5)  //il rating viene sovrscitto
             ];
         });
-    }
+    }  //continue on DatabaseSeeder.php
+
     public function bad(){
         return $this->state(function (array $attributes){
             return [
-                'rating'=>fake()->numberBetween(1,3)
+                'rating'=>fake()->numberBetween(1,3)   //il rating viene sovrscitto
             ];
         });
     }

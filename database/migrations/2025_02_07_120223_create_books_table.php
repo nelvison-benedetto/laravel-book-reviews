@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('books', function (Blueprint $table) {
+        Schema::create('books', function (Blueprint $table) {  //crete tab in db called 'books' with these fields
             $table->id();
             $table->string('title');
             $table->string('author');
             $table->timestamps();
-
         });
     }
 
